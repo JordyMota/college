@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap');
+@import url(components/switch.css);
+@import url(components/input.css);
+@import url(components/button.css);
+@import url(components/icons.css);
+@import url(components/icon-selection.css);
+
+* {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+html,body {
+    width: 100vw;
+    height: 100vh;
+}
+
+input, button {
+    outline: none;
+    border: none;
+}
+
+p , ul, a, h1, h2, h3, h4 {
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+    margin: 0;
+    color: var(--second-color);
+    background-color: var(--main-color);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    -webkit-transition: .24s;
+    transition: .24s;
+}
+
+.blood-background {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 999999999;
+    pointer-events: none;
+    width: 25%;
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.dark-mode .blood-background {
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%);
+} 
+
+.disable {
+    opacity: .7 !important;
+    pointer-events: none !important;
+}
+
+.hide {
+    display: none !important;
+}
+
+.zero-max-height {
+    max-height: 0 !important;
+    margin: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+header {
+    padding: 4.5vh 3.8vw;
+    display: flex;
+    align-items: center;
+    align-items: center;
+}
+
+header .img-logo {
+    margin: 0;
+    -webkit-animation: spin 1.6s linear infinite;
+    animation: spin 1.6s linear infinite;
+    width: 80px;
+    height: 80px;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    background: transparent url(../images/sun.png) center center no-repeat;
+    background-size: 100%;
+    margin-left: 35px;
+}
+
+.dark-mode .img-logo {
+    background: #000 url(../images/saw.jpg) center center no-repeat;
+    background-size: 160%;
+}
+
+.toggle-config-container {
+    width: 100%;
+    display: none;
+    justify-content: center;
+    margin: 10px 0 15px;
+    padding: 0 16px;
+}
+
+.toggle-config-container button {
+    width: auto;
+    flex: 1;
+    margin: 0 8px;
+}
+
+.toggle-config-container button:first-child {
+    margin-left: 0;
+}
+
+.toggle-config-container button:last-child {
+    margin-right: 0;
+}
+
+.button-dark-container {
+    position: fixed;
+    top: 30px;
+    right: 20px;
+    z-index: 99999999999999;
+}
+
+.main-container {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+}
+
+aside {
+    width: 30%;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+    padding: 30px 0 15px 68px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+main {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.conf-title {
+    font-weight: 500;
+}
+
+.conf-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 20px;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* @media (max-width: 767px) { */
+@media (max-width: 850px) {
+    .main-container {
+        overflow-y: auto;
+        display: block;
+    }
+
+    aside {
+        overflow: hidden;
+        -webkit-transition: .42s;
+        transition: .42s;
+        height: auto;
+        width: 100vw;
+        padding-left: 16px;
+        padding-right: 16px;
+        margin-bottom: 30px;
+        border-bottom: 1px solid var(--second-color);
+    }
+
+    main {
+        flex: unset;
+        overflow: hidden;
+        height: auto;
+    }
+
+    header {
+        justify-content: space-between;
+    }
+
+    header .img-logo{
+        animation-duration: 2.4s;
+    }
+    
+    .toggle-config-container {
+        display: flex;
+    }
+
+    .button-dark-container {
+        display: none;
+    }
+}

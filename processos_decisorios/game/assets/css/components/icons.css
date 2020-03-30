@@ -1,0 +1,715 @@
+.adwords-svg:before {
+    content: '';
+    background: url(../../icons/adwords.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.agreement-svg:before {
+    content: '';
+    background: url(../../icons/agreement.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.alarm-svg:before {
+    content: '';
+    background: url(../../icons/alarm.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.alcohol-svg:before {
+    content: '';
+    background: url(../../icons/alcohol.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.art-svg:before {
+    content: '';
+    background: url(../../icons/art.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.award-svg:before {
+    content: '';
+    background: url(../../icons/award.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.bars-svg:before {
+    content: '';
+    background: url(../../icons/bars.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.blocked-svg:before {
+    content: '';
+    background: url(../../icons/blocked.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.book-svg:before {
+    content: '';
+    background: url(../../icons/book.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.bookmark-svg:before {
+    content: '';
+    background: url(../../icons/bookmark.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.brightness-svg:before {
+    content: '';
+    background: url(../../icons/brightness.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.broken-link-svg:before {
+    content: '';
+    background: url(../../icons/broken-link.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.buy-svg:before {
+    content: '';
+    background: url(../../icons/buy.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.car-svg:before {
+    content: '';
+    background: url(../../icons/car.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.charging-svg:before {
+    content: '';
+    background: url(../../icons/charging.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.charity-svg:before {
+    content: '';
+    background: url(../../icons/charity.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.check-up-svg:before {
+    content: '';
+    background: url(../../icons/check-up.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.circle-svg:before {
+    content: '';
+    background: url(../../icons/circle.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.close-svg:before {
+    content: '';
+    background: url(../../icons/close.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.coding-svg:before {
+    content: '';
+    background: url(../../icons/coding.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.crop-svg:before {
+    content: '';
+    background: url(../../icons/crop.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.customizable-svg:before {
+    content: '';
+    background: url(../../icons/customizable.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.disabled-svg:before {
+    content: '';
+    background: url(../../icons/disabled.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.download-svg:before {
+    content: '';
+    background: url(../../icons/download.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.ebook-svg:before {
+    content: '';
+    background: url(../../icons/ebook.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.ecologic-svg:before {
+    content: '';
+    background: url(../../icons/ecologic.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.edit-svg:before {
+    content: '';
+    background: url(../../icons/edit.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.energy-svg:before {
+    content: '';
+    background: url(../../icons/energy.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.female-svg:before {
+    content: '';
+    background: url(../../icons/female.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.filter-svg:before {
+    content: '';
+    background: url(../../icons/filter.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.fingerprint-svg:before {
+    content: '';
+    background: url(../../icons/fingerprint.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.fix-svg:before {
+    content: '';
+    background: url(../../icons/fix.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.folder-svg:before {
+    content: '';
+    background: url(../../icons/folder.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.food-svg:before {
+    content: '';
+    background: url(../../icons/food.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.full-charge-svg:before {
+    content: '';
+    background: url(../../icons/full-charge.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.hand-svg:before {
+    content: '';
+    background: url(../../icons/hand.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.health-svg:before {
+    content: '';
+    background: url(../../icons/health.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.healthy-svg:before {
+    content: '';
+    background: url(../../icons/healthy.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.heart-svg:before {
+    content: '';
+    background: url(../../icons/heart.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.help-svg:before {
+    content: '';
+    background: url(../../icons/help.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.idea-svg:before {
+    content: '';
+    background: url(../../icons/idea.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.image-svg:before {
+    content: '';
+    background: url(../../icons/image.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.key-svg:before {
+    content: '';
+    background: url(../../icons/key.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.loading-svg:before {
+    content: '';
+    background: url(../../icons/loading.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.locked-svg:before {
+    content: '';
+    background: url(../../icons/locked.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.low-charge-svg:before {
+    content: '';
+    background: url(../../icons/low-charge.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.magic-wand-svg:before {
+    content: '';
+    background: url(../../icons/magic-wand.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.mailing-svg:before {
+    content: '';
+    background: url(../../icons/mailing.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.male-svg:before {
+    content: '';
+    background: url(../../icons/male.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.man-svg:before {
+    content: '';
+    background: url(../../icons/man.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.map-svg:before {
+    content: '';
+    background: url(../../icons/map.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.medal-svg:before {
+    content: '';
+    background: url(../../icons/medal.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.microphone-svg:before {
+    content: '';
+    background: url(../../icons/microphone.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.miscellaneous-svg:before {
+    content: '';
+    background: url(../../icons/miscellaneous.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.move-svg:before {
+    content: '';
+    background: url(../../icons/move.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.music-svg:before {
+    content: '';
+    background: url(../../icons/music.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.news-svg:before {
+    content: '';
+    background: url(../../icons/news.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.next-svg:before {
+    content: '';
+    background: url(../../icons/next.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+
+.notification-svg:before {
+    content: '';
+    background: url(../../icons/notification.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.pause-svg:before {
+    content: '';
+    background: url(../../icons/pause.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.pen-tip-svg:before {
+    content: '';
+    background: url(../../icons/pen-tip.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.pets-svg:before {
+    content: '';
+    background: url(../../icons/pets.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.phone-svg:before {
+    content: '';
+    background: url(../../icons/phone.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.play-svg:before {
+    content: '';
+    background: url(../../icons/play.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.power-svg:before {
+    content: '';
+    background: url(../../icons/power.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.previous-svg:before {
+    content: '';
+    background: url(../../icons/previous.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.protected-svg:before {
+    content: '';
+    background: url(../../icons/protected.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.quality-svg:before {
+    content: '';
+    background: url(../../icons/quality.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.record-svg:before {
+    content: '';
+    background: url(../../icons/record.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.recycle-svg:before {
+    content: '';
+    background: url(../../icons/recycle.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.repair-svg:before {
+    content: '';
+    background: url(../../icons/repair.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.research-svg:before {
+    content: '';
+    background: url(../../icons/research.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.researcher-svg:before {
+    content: '';
+    background: url(../../icons/researcher.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.reuse-svg:before {
+    content: '';
+    background: url(../../icons/reuse.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.savings-svg:before {
+    content: '';
+    background: url(../../icons/savings.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.scale-svg:before {
+    content: '';
+    background: url(../../icons/scale.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.schedule-svg:before {
+    content: '';
+    background: url(../../icons/schedule.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.search-svg:before {
+    content: '';
+    background: url(../../icons/search.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.settings-svg:before {
+    content: '';
+    background: url(../../icons/settings.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.shades-svg:before {
+    content: '';
+    background: url(../../icons/shades.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.share-svg:before {
+    content: '';
+    background: url(../../icons/share.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.shirt-svg:before {
+    content: '';
+    background: url(../../icons/shirt.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.shoe-svg:before {
+    content: '';
+    background: url(../../icons/shoe.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.sleep-mode-svg:before {
+    content: '';
+    background: url(../../icons/sleep-mode.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.star-svg:before {
+    content: '';
+    background: url(../../icons/star.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.statistics-svg:before {
+    content: '';
+    background: url(../../icons/statistics.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.stop-svg:before {
+    content: '';
+    background: url(../../icons/stop.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.structure-svg:before {
+    content: '';
+    background: url(../../icons/structure.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.temperature-svg:before {
+    content: '';
+    background: url(../../icons/temperature.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.thumb-up-svg:before {
+    content: '';
+    background: url(../../icons/thumb-up.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.time-svg:before {
+    content: '';
+    background: url(../../icons/time.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.touch-svg:before {
+    content: '';
+    background: url(../../icons/touch.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.transfer-svg:before {
+    content: '';
+    background: url(../../icons/transfer.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.trash-svg:before {
+    content: '';
+    background: url(../../icons/trash.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.tree-svg:before {
+    content: '';
+    background: url(../../icons/tree.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.unlinked-svg:before {
+    content: '';
+    background: url(../../icons/unlinked.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.unlock-svg:before {
+    content: '';
+    background: url(../../icons/unlock.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.upload-svg:before {
+    content: '';
+    background: url(../../icons/upload.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.video-svg:before {
+    content: '';
+    background: url(../../icons/video.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.vip-svg:before {
+    content: '';
+    background: url(../../icons/vip.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.web-news-svg:before {
+    content: '';
+    background: url(../../icons/web-news.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
+.woman-svg:before {
+    content: '';
+    background: url(../../icons/woman.svg) center center no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 100%;
+}
