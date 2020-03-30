@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <title>Jogos Mortais</title>
+        <link rel="stylesheet" href="assets/css/index.css">
+        <style dark-mode-vars></style>
+    </head>
+    <body>
+        <header>
+            <h2 id="page-title">Vamos jogar um jogo?</h2>
+            <div class="img-logo"></div>
+        </header>
+        <div class="main-container">
+            <div class="toggle-config-container">
+                <button class="button" onclick="toggleDarkMode()">
+                    Alternar modo escuro
+                </button>
+                <button class="button" onclick="toggleConfig()">
+                    Configurações
+                </button>
+            </div>
+            <aside id="config-container">
+                <div class="conf-container">
+                    <span class="conf-title">
+                        Configurações
+                    </span>
+
+                    <button class="button button--small" onclick="initGame(event)">
+                        Iniciar Jogo
+                    </button>
+                </div>
+                <div class="input-container">
+                    <label for="value">Qual o tamanho do tabuleiro?</label>
+                    <input type="text" id="value" placeholder="0x0" maxlength="3" onkeyup="this.value = maskTableFormat(this.value)">
+                </div>
+                <div class="switch-container">
+                    <input type="checkbox" id="block-squares" checked="true" onchange="document.querySelector('#block-amount-container').classList.toggle('disable');">
+                    <label class="switch-label" for="block-squares">
+                        Bloquear quadrados?
+                        <div class="switch"></div>
+                    </label>
+                </div>
+                <div class="input-container input-container--second" id="block-amount-container">
+                    <label for="block-square-amounts">Quantos quadrados serão bloqueados?</label>
+                    <input type="text" id="block-square-amounts" value="2" placeholder="0" onkeyup="this.value = cleanTextOnlyNumbers(this.value)">
+                </div>
+                <div class="switch-container">
+                    <input type="checkbox" id="block-squares-random" checked="true" onchange="document.querySelector('#block-amount-container-random').classList.toggle('disable');">
+                    <label class="switch-label" for="block-squares-random">
+                        Bloquear aleatoriamente?
+                        <div class="switch"></div>
+                    </label>
+                </div>
+                <div class="input-container input-container--second disable input-container--helper" id="block-amount-container-random">
+                    <label for="block-square-amounts-random">Digite as linhas e colunas que serão bloqueadas?<span>Separados por virgula.</span></label>
+                    <input type="text" id="block-square-amounts-random" placeholder="LxC,LxC" onkeyup="this.value = maskTableRow(this.value)">
+                </div>
+                <div class="switch-container">
+                    <input type="checkbox" id="machine-init">
+                    <label class="switch-label" for="machine-init">
+                        A máquina joga primeiro?
+                        <div class="switch"></div>
+                    </label>
+                </div>
+                <div class="selection-container">
+                    <button class="button button--small" onclick="displaySelectIcon(event)">
+                        Selecionar icone
+                    </button>
+                    <span class="icon-holder close-svg active-icon"></span>
+                </div>
+            </aside>
+            <main>
+            </main>
+        </div>
+        <img class="blood-background" src="assets/images/blood-dripping.png"/>
+        <div class="button-dark-container">
+            <button class="button button--small" onclick="toggleDarkMode(event)">
+                Alternar modo escuro
+            </button>
+        </div>
+        <script type="text/javascript" src="js/index.js"></script>
+    </body>
+</html>

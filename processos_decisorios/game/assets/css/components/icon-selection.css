@@ -1,0 +1,70 @@
+
+.selection-container {
+    display: flex;
+    align-items: center;
+    margin-top: 25px;
+    padding-left: 10px;
+}
+
+ .icon-holder {
+    width: 30px;
+    height: 30px;
+    background-color: #ddd;
+    color: #000;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    border: 1px solid var(--active-color);
+}
+
+body:not(.dark-mode) .selection-container .icon-holder {
+    background-color: #fff;
+}
+
+.select-container {
+    width: 300px;
+    max-height: 500px;
+    background-color: var(--second-color);
+    display: flex;
+    flex-wrap: wrap;
+    position: fixed;
+    z-index: 99999;
+    padding: 8px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.select-container .icon-holder {
+    margin: 6px;
+    border: 1px solid var(--main-color);
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    background-color: var(--second-color);
+}
+
+.select-container .icon-holder:hover {
+    cursor: pointer;
+    opacity: .7;
+}
+
+body:not(.dark-mode) .select-container .icon-holder:before {
+    filter: invert(100%);
+}
+
+.icon-holder.active-icon {
+    border-color: var(--active-color);
+}
+
+.icon-holder.active-icon:before {
+    -webkit-filter: invert(82%) sepia(15%) saturate(3778%) hue-rotate(73deg) brightness(92%) contrast(84%);
+    filter: invert(82%) sepia(15%) saturate(3778%) hue-rotate(73deg) brightness(92%) contrast(84%);
+}
+
+.dark-mode .icon-holder.active-icon:before {
+    background-color: transparent;
+    -webkit-filter: invert(39%) sepia(86%) saturate(7243%) hue-rotate(352deg) brightness(89%) contrast(129%);
+    filter: invert(39%) sepia(86%) saturate(7243%) hue-rotate(352deg) brightness(89%) contrast(129%);
+}

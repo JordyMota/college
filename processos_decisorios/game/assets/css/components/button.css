@@ -1,0 +1,33 @@
+
+.button {
+    -webkit-transition: .2s;
+    transition: .2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--second-color);
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    color: var(--second-active-color);
+    font-weight: bold;
+    font-size: .88;
+    padding: 10px 14px;
+    width: 80%;
+    min-height: 40px;
+}
+
+.button--small {
+    padding: 6px 10px;
+    font-size: .7em;
+    width: auto;
+    min-height: unset;
+}
+
+.button:hover {
+    cursor: pointer;
+    opacity: .9;
+}
+
+.button:active {
+    opacity: .7;
+}
