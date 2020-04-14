@@ -11,24 +11,24 @@ function getIconList(activeIcon='') {
 
 function getActiveIcon({ classList: { value } }) {
     return value.replace('icon-holder','').replace('active-icon','').trim();
-
 }
 
-function displaySelectIcon({target}) {
+function displaySelectIcon({target},isTarget=false) {
     const { parentElement, nextElementSibling } = target;
-    const activeIcon = getActiveIcon(nextElementSibling);
+    const elemTarget = isTarget ? target : nextElementSibling;
+    const activeIcon = getActiveIcon(elemTarget);
     const list = '<div class="select-container hide" id="svg-list-select">' + getIconList(activeIcon) + '</div>';
     document.body.appendChild(document.createElement('svgListItems'));
     document.querySelector('svgListItems').outerHTML = list;
     const currentList = document.querySelector('#svg-list-select');
-    const iconRef = nextElementSibling.getBoundingClientRect();
+    const iconRef = elemTarget.getBoundingClientRect();
     const containerRef = parentElement.getBoundingClientRect();
     currentList.style.bottom = (window.innerHeight - containerRef.top) + 'px';
     currentList.style.left = (iconRef.left + iconRef.width) + 'px';
     currentList.classList.remove('hide');
     [...currentList.children].forEach( item => {
         item.onclick = ({target}) => {
-            handleCloseList(target,currentList,nextElementSibling)
+            handleCloseList(target,currentList,elemTarget)
         }
     });
 }
