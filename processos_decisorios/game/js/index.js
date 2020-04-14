@@ -5,6 +5,7 @@ const importFile = fileName => {
     script.src = `js/components/${fileName}.js`;
     document.body.appendChild(script);
 }
+
 importFile('table');
 importFile('icon-selection');
 importFile('config-form');
