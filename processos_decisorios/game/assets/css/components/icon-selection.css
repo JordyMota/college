@@ -45,8 +45,11 @@ body:not(.dark-mode) .selection-container .icon-holder {
     background-color: var(--second-color);
 }
 
-.select-container .icon-holder:hover {
+.icon-holder:hover {
     cursor: pointer;
+}
+
+.select-container .icon-holder:hover {
     opacity: .7;
 }
 

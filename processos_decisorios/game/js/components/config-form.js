@@ -37,3 +37,7 @@ function maskTableRow(value) {
     infiniteMask(3, 4,',',value,setValue);
 	return value;
 }
+
+function initGame() {
+    generateTable({});
+}

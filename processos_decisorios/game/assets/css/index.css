@@ -4,6 +4,7 @@
 @import url(components/button.css);
 @import url(components/icons.css);
 @import url(components/icon-selection.css);
+@import url(components/table.css);
 
 * {
     box-sizing: border-box;
@@ -147,6 +148,9 @@ main {
     flex: 1;
     overflow-y: auto;
     overflow-x: hidden;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
 }
 
 .conf-title {
