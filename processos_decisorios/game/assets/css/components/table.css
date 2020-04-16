@@ -41,8 +41,8 @@
 .table-cell-control--blocked:before {
 	content: '';
 	display: block;
-	height: 35%;
-	width: 35%;
+	height: 55%;
+	width: 55%;
 	background: unset !important;
 	background-color: #000 !important;
 	opacity: .7;
