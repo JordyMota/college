@@ -39,5 +39,32 @@ function maskTableRow(value) {
 }
 
 function initGame() {
-    generateTable({});
+    const sizeInput = document.getElementById('value');
+    const blockSquare = document.getElementById('block-squares');
+    const blockSquareAmounts = document.getElementById('block-square-amounts');
+    const blockSquaresRandom = document.getElementById('block-squares-random');
+    const blockSquarePos = document.getElementById('block-square-amounts-random');
+    const machineInit = document.getElementById('machine-init');
+    const selectionIconHolder = document.getElementById('selection-icon-holder');
+    const tableOptions = {};
+    if (sizeInput && sizeInput.value) {
+        const [sizeX,sizeY] = sizeInput.value.split('x');
+        if(sizeX && sizeY && !isNaN(sizeX) && !isNaN(sizeY)) {
+            tableOptions.sizeX = sizeX;
+            tableOptions.sizeY = sizeY;
+        }
+    }
+    if(blockSquare)
+        tableOptions.blockSquares = blockSquare.checked;
+    if(!!tableOptions.blockSquares && blockSquareAmounts && blockSquareAmounts.value && !isNaN(blockSquareAmounts.value))
+        tableOptions.blockAmount = parseInt(blockSquareAmounts.value);
+    if(!!tableOptions.blockSquares && blockSquaresRandom)
+        tableOptions.blockRamdom = blockSquaresRandom.checked;
+    if(!!tableOptions.blockSquares && !tableOptions.blockRamdom && blockSquarePos)
+        tableOptions.blockCords = blockSquarePos.value;
+    if(machineInit)
+        tableOptions.machineInit = machineInit.checked;
+    if(selectionIconHolder)
+        tableOptions.userIcon = getActiveIcon(selectionIconHolder);
+    generateTable(tableOptions);
 }
