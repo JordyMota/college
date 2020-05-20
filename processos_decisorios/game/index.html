@@ -73,8 +73,17 @@
                 </div>
             </aside>
             <main>
+                <button class="button button--small" onclick="resetScore()" style="display: none;" button-reset-score>
+                    Resetar placar
+                </button>
+                <div class="score-table" score-table-ref style="display: none;">
+                    <div class="score-table-label" user-score-label></div>
+                    <div class="score-table-sign" user-score-value>0</div>
+                    <div class="score-middle-divisor close-svg"></div>
+                    <div class="score-table-sign" pc-score-value>0</div>
+                    <div class="score-table-label" pc-score-label></div>
+                </div>
                 <div class="table-content-control" id="table-generate">
-                    
                 </div>
             </main>
         </div>

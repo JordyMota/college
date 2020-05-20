@@ -6,6 +6,7 @@ const importFile = fileName => {
     document.body.appendChild(script);
 }
 
+importFile('score');
 importFile('table');
 importFile('icon-selection');
 importFile('config-form');
@@ -20,6 +21,8 @@ document.body.onload = ()=> {
 }
 
 function toggleConfig() {
+    if (window.innerWidth > 900)
+        return;
     const container = document.querySelector('#config-container');
     if (container)
         container.classList.toggle('zero-max-height');
