@@ -1,6 +1,6 @@
 .table-content-control {
-	width: 85%;
-	min-width: 85%;
+	width: 70%;
+	min-width: 70%;
 	display: flex;
 	flex-wrap: wrap;
 	background-color: #ddd;
@@ -9,6 +9,7 @@
 	margin: 25px 0 35px;
 	-webkit-transition: .22s;
 	transition: .22s;
+	position: relative;
 }
 
 .table-cell-control {
@@ -52,4 +53,24 @@
 .table-cell-control:hover {
 	cursor: pointer;
 	opacity: .83;
+}
+
+.line-point-check {
+    position: absolute;
+    height: 3px;
+    background-color: var(--active-color);
+    transform-origin: left;
+    transition: width 450ms;
+    transition-timing-function: linear;
+    width: 0;
+	z-index: 99999;
+	pointer-events: none;
+}
+
+@media (max-width: 900px) {
+	.table-content-control {
+		width: 94%;
+		min-width: 94%;
+	}
+
 }
