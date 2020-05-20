@@ -5,6 +5,7 @@
 @import url(components/icons.css);
 @import url(components/icon-selection.css);
 @import url(components/table.css);
+@import url(components/score.css);
 
 * {
     box-sizing: border-box;
@@ -149,8 +150,9 @@ main {
     overflow-y: auto;
     overflow-x: hidden;
     display: flex;
-    align-items: flex-start;
-    justify-content: center;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
 }
 
 .conf-title {
@@ -185,7 +187,7 @@ main {
 }
 
 /* @media (max-width: 767px) { */
-@media (max-width: 850px) {
+@media (max-width: 900px) {
     .main-container {
         overflow-y: auto;
         display: block;

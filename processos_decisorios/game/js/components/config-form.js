@@ -67,4 +67,5 @@ function initGame() {
     if(selectionIconHolder)
         tableOptions.userIcon = getActiveIcon(selectionIconHolder);
     generateTable(tableOptions);
+    toggleConfig();
 }

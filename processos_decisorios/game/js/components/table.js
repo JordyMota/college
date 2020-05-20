@@ -1,14 +1,29 @@
 var tableInfo = [];
+var sizeTableInfo = {
+	x: 0,
+	y: 0,
+	blocks: 0
+}
 var usersInfo = {
 	user: {
 		blocks: [],
-		icon: ''
+		icon: '',
+		doneCombos: [],
+		points: 0
 	},
 	pc: {
 		blocks: [],
-		icon: ''
+		icon: '',
+		doneCombos: [],
+		points: 0
 	}
 };
+var gameRunning = false;
+
+const resetInfo = {
+	html: '',
+	blocks: ''
+}
 
 function generateTable({
 	sizeX = 4,
@@ -24,22 +39,53 @@ function generateTable({
 		return;
 	const blocks = handleBlockItems(blockSquares,blockAmount,blockRamdom,blockCords,sizeY,sizeX);
 	tableInfo = [];
+	sizeTableInfo.x = sizeX;
+	sizeTableInfo.y = sizeY;
+	sizeTableInfo.blocks = blockAmount;
+	gameRunning = true;
 	usersInfo = {
 		user: {
 			blocks: [],
-			icon: ''
+			icon: '',
+			doneCombos: [],
+			points: 0
 		},
 		pc: {
 			blocks: [],
-			icon: ''
+			icon: '',
+			doneCombos: [],
+			points: 0
 		}
 	};
 	handleTableData(sizeY,sizeX,blocks);
 	usersInfo.user.icon = userIcon;
 	usersInfo.pc.icon = getPcIcon(userIcon);
+	startScore(usersInfo.user.icon,usersInfo.pc.icon);
 	handleTableRender(sizeX,userIcon);
+	const tableContainer = document.querySelector('#table-generate');
+	resetInfo.html = tableContainer.outerHTML;
+	resetInfo.blocks = [...tableInfo];
 	if(machineInit)
 		handlePcMove();
+}
+
+function resetTable() {
+	const tableContainer = document.querySelector('#table-generate');
+	tableContainer.style.removeProperty('pointer-events');
+	tableContainer.outerHTML = resetInfo.html;
+	tableInfo = resetInfo.blocks.map(item => ({ ...item, filled: false, filled: null, iconName: '' }));
+	usersInfo.user.blocks = [];
+	usersInfo.user.doneCombos = [];
+	usersInfo.user.points = 0;
+	usersInfo.pc.blocks = [];
+	usersInfo.pc.doneCombos = [];
+	usersInfo.pc.points = 0;
+	const lines = document.querySelectorAll('.line-point-check');
+	gameRunning = true;
+	lines.forEach(item => {
+		item.outerHTML = '';
+	});
+	closeModalWin();
 }
 
 function handleTableData(sizeY,sizeX,blocks) {
@@ -87,11 +133,31 @@ function handleCellClick(target,userIcon,user) {
 		target.classList.remove(logicalTarget.iconName);
 	target.classList.add(userIcon);
 	logicalTarget.iconName = userIcon;
+	logicalTarget.filled = true;
+	logicalTarget.filledId = user;
 	usersInfo[user].blocks.push(logicalTarget);
+	usersInfo[user].blocks = usersInfo[user].blocks.sort((first,second) => (
+		first.y < second.y ? -1 : (
+			first.y > second.y ? 1 : (
+				first.x < second.x ? -1 : (
+					first.x > second.x ? 1 : 0
+				)
+			)
+		)
+	));
 	tableInfo[targetIndex].filled = true;
 	tableInfo[targetIndex].filledId = user;
+	verifyLine(user,3);
+	if(!gameRunning)
+		return;
+	if ( (usersInfo.user.blocks.length + usersInfo.pc.blocks.length) === (tableInfo.length - sizeTableInfo.blocks) ) {
+		handleEndGame(user,true);
+		return;
+	}
 	if(user === 'user')
 		setTimeout(()=> {
+			if(!gameRunning)
+				return;
 			handlePcMove();
 		},400)
 }
@@ -182,4 +248,109 @@ function handlePcMove() {
 			}
 		}
 	}
+}
+
+function verifyLine(user,amount=3) {
+	const skeletonPos = { left: null, up: null, right: null, bottom: null, rightTop: null, rightBottom: null, leftTop: null, leftBottom: null };
+	let userBlocks = usersInfo[user].blocks.map( item => ({ ...item, ...skeletonPos }));
+	usersInfo[user].blocks.map( item => {
+		if(!gameRunning)
+			return;
+		[
+			{ direct: 'horizontal', sumX: 1, sumY: 0 },
+			{ direct: 'vertical', sumX: 0, sumY: 1 },
+			{ direct: 'diagonal', sumX: 1, sumY: 1 }
+		].map(dir => {
+			if(!gameRunning)
+				return;
+			let = verify = {
+				first: null,
+				last: null,
+				amount: 1,
+				direct: null
+			}
+			const verifyItem = (currentBlock, sumX, sumY) => {
+				let [validItem] = usersInfo[user].blocks.filter(block => (
+					currentBlock.x + sumX === block.x && currentBlock.y + sumY === block.y
+				));
+				if(!validItem)
+					return;
+				verify.amount++;
+				if (verify.amount === 2)
+					verify.first = currentBlock;
+				if (verify.amount === amount) {
+					verify.last = validItem;
+				}
+				if (verify.amount === (amount+1)) {
+					usersInfo[user].points = 2;
+					handleEndGame(user);
+					return;
+				}
+				verifyItem(validItem, sumX, sumY);
+			}
+			verify.direct = dir.direct;
+			verifyItem(item,dir.sumX,dir.sumY);
+			if (verify.amount === amount && usersInfo[user].doneCombos.every(check => (check.first.x !== verify.first.x || check.first.y !== verify.first.y || check.last.x !== verify.last.x || check.last.y !== verify.last.y))) {
+				handlePoint(user,verify);
+			}
+		});
+	});
+}
+
+function handlePoint(user,verify) {
+	usersInfo[user].doneCombos.push(verify);
+	usersInfo[user].points++;
+	const tableContainer = document.querySelector('#table-generate');
+	if(!!tableContainer) {
+		const defaultWidth = tableContainer.querySelector('[data-cell]').getBoundingClientRect().width;
+		const start = {
+			left: (verify.first.x * defaultWidth) + ((defaultWidth - 4) / 2),
+			bottom: ((sizeTableInfo.y - verify.first.y - 1) * defaultWidth) + ((defaultWidth - 4) / 2)
+		}
+		const end = {
+			left: (verify.last.x * defaultWidth) + ((defaultWidth - 4) / 2),
+			bottom: ((sizeTableInfo.y - verify.last.y - 1) * defaultWidth) + ((defaultWidth - 4) / 2)
+		}
+		let line = document.createElement('div');
+		line.setAttribute('class', 'line-point-check');
+		tableContainer.appendChild(line);
+		calculateLine(start,end,line);
+	}
+	if (usersInfo[user].points === 2) {
+		handleEndGame(user);
+		return;
+	}
+
+}
+
+function handleEndGame(player,draw=false) {
+	const tableContainer = document.querySelector('#table-generate');
+	gameRunning = false;
+	let currentWinner = player;
+	if (draw) {
+		currentWinner = usersInfo.pc.points > usersInfo.user.points ? 'pc' : (usersInfo.pc.points < usersInfo.user.points ? 'user' : null);
+		if (!currentWinner)
+			return;
+	}
+	tableContainer.style.pointerEvents = 'none';
+	setTimeout(()=> {
+		callModalWin(currentWinner, currentWinner === 'pc' ? usersInfo.pc.points : usersInfo.user.points, currentWinner === 'pc' ? usersInfo.user.points : usersInfo.pc.points);
+	},300);
+	addPoint(currentWinner);
+}
+
+//Função do repósitorio ChartGen de JordyMota no GitHub
+function calculateLine(dotA, dotB, line) {
+	const lineASize = dotB.bottom - dotA.bottom;
+	const lineBSize = dotB.left - dotA.left;
+	const lineWidth =  Math.sqrt(Math.pow(lineASize, 2) + Math.pow(lineBSize, 2));
+	let angle = (Math.atan2(lineASize,lineBSize)) * 180 / Math.PI;
+	const alignLineCenter = parseInt(5/2);
+	angle *= (-1);
+	line.style.bottom = (dotA.bottom+alignLineCenter)+'px';
+	line.style.left = (dotA.left+alignLineCenter)+'px';
+	line.style.transform = 'rotate('+(angle)+'deg)';
+	setTimeout(()=> {
+		line.style.width = lineWidth+'px';
+	},300)
 }
