@@ -23,17 +23,19 @@ function resetScore() {
 	pcScore.innerHTML = '0';
 }
 
-function callModalWin(user,points,otherPoints) {
+function callModalWin(user,points=0,otherPoints=0) {
 	const modalContent = `
 		<div class="modal-win-backdrop" modal-backdrop-item>
 			<div class="modal-win-content">
 				<span class="modal-win-text">
 					${
-						user === 'pc' ? `
-							Ops!<br/>Parece que eu ganhei dessa vez, por:<br/>
-						` : `
-							Parabéns!<br/>Parece que dessa vez você se saiu melhor, a pontuação foi:<br/>
-						`
+						!user ? `Empate!<br/>Parece que nossas habilidades se igualaram nessa partida.<br/>` : (
+							user === 'pc' ? `
+								Ops!<br/>Parece que eu ganhei dessa vez, por:<br/>
+							` : `
+								Parabéns!<br/>Parece que dessa vez você se saiu melhor, a pontuação foi:<br/>
+							`
+						)
 					}
 					<strong>
 						${points} x ${otherPoints}
