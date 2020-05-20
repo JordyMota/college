@@ -128,6 +128,9 @@ function handleCellClick(target,userIcon,user) {
 	const logicalTarget = tableInfo[targetIndex];
 	if(!logicalTarget || logicalTarget.blocked || logicalTarget.filled)
 		return;
+	const tableContainer = document.querySelector('#table-generate');
+	if (tableContainer)
+		tableContainer.style.pointerEvents = 'none';
 	target.classList.add('table-cell-control--filled');
 	if (logicalTarget.iconName)
 		target.classList.remove(logicalTarget.iconName);
@@ -154,12 +157,16 @@ function handleCellClick(target,userIcon,user) {
 		handleEndGame(user,true);
 		return;
 	}
-	if(user === 'user')
+	if(user === 'user') {
 		setTimeout(()=> {
 			if(!gameRunning)
 				return;
 			handlePcMove();
 		},400)
+		return;
+	}
+	if (tableContainer)
+		tableContainer.style.removeProperty('pointer-events');
 }
 
 function getPcIcon(userIcon) {
@@ -329,8 +336,10 @@ function handleEndGame(player,draw=false) {
 	let currentWinner = player;
 	if (draw) {
 		currentWinner = usersInfo.pc.points > usersInfo.user.points ? 'pc' : (usersInfo.pc.points < usersInfo.user.points ? 'user' : null);
-		if (!currentWinner)
+		if (!currentWinner) {
+			callModalWin();
 			return;
+		}
 	}
 	tableContainer.style.pointerEvents = 'none';
 	setTimeout(()=> {
