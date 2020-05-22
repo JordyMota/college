@@ -7,6 +7,7 @@ const importFile = fileName => {
 }
 
 importFile('score');
+importFile('pc_brain');
 importFile('table');
 importFile('icon-selection');
 importFile('config-form');
