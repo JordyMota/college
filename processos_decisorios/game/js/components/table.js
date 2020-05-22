@@ -2,7 +2,8 @@ var tableInfo = [];
 var sizeTableInfo = {
 	x: 0,
 	y: 0,
-	blocks: 0
+	blocks: 0,
+	machineInit: false
 }
 var usersInfo = {
 	user: {
@@ -41,7 +42,8 @@ function generateTable({
 	tableInfo = [];
 	sizeTableInfo.x = sizeX;
 	sizeTableInfo.y = sizeY;
-	sizeTableInfo.blocks = blockAmount;
+	sizeTableInfo.blocks = blockSquares ? blockAmount : 0;
+	sizeTableInfo.machineInit = machineInit;
 	gameRunning = true;
 	usersInfo = {
 		user: {
@@ -63,7 +65,8 @@ function generateTable({
 	startScore(usersInfo.user.icon,usersInfo.pc.icon);
 	handleTableRender(sizeX,userIcon);
 	const tableContainer = document.querySelector('#table-generate');
-	resetInfo.html = tableContainer.outerHTML;
+	tableContainer.style.removeProperty('pointer-events');
+	resetInfo.html = tableContainer.innerHTML;
 	resetInfo.blocks = [...tableInfo];
 	if(machineInit)
 		handlePcMove();
@@ -72,8 +75,8 @@ function generateTable({
 function resetTable() {
 	const tableContainer = document.querySelector('#table-generate');
 	tableContainer.style.removeProperty('pointer-events');
-	tableContainer.outerHTML = resetInfo.html;
-	tableInfo = resetInfo.blocks.map(item => ({ ...item, filled: false, filled: null, iconName: '' }));
+	tableContainer.innerHTML = resetInfo.html;
+	tableInfo = resetInfo.blocks.map(item => ({ ...item, filled: false, filledId: null, iconName: '', priority: 0 }));
 	usersInfo.user.blocks = [];
 	usersInfo.user.doneCombos = [];
 	usersInfo.user.points = 0;
@@ -86,6 +89,8 @@ function resetTable() {
 		item.outerHTML = '';
 	});
 	closeModalWin();
+	if (sizeTableInfo.machineInit)
+		handlePcMove();
 }
 
 function handleTableData(sizeY,sizeX,blocks) {
@@ -97,9 +102,10 @@ function handleTableData(sizeY,sizeX,blocks) {
 			x,
 			y,
 			filled: false,
-			blocked: (blocks && blocks.length) ? blocks.filter( blk => blk.x === x && blk.y === y).length : false,
+			blocked: (blocks && blocks.length) ? !!blocks.filter( blk => blk.x === x && blk.y === y).length : false,
 			filledId: null,
-			iconName: ''
+			iconName: '',
+			priority: 0
 		});
 	});
 }
@@ -157,6 +163,7 @@ function handleCellClick(target,userIcon,user) {
 		handleEndGame(user,true);
 		return;
 	}
+	setPriority();
 	if(user === 'user') {
 		setTimeout(()=> {
 			if(!gameRunning)
@@ -242,16 +249,22 @@ function handlePcMove() {
 		return;
 	let verifyEqual = false;
 	let index = 0;
-	let ramdomItem = randomIntFromInterval(1,tableInfo.length) - 1;
+	let amount = 0;
+	let startRamdom = false;
+	let ramdomItem = getPcMovement(sizeTableInfo.machineInit,usersInfo);
 	while(!verifyEqual) {
 		if(!tableInfo[ramdomItem].filled && !tableInfo[ramdomItem].blocked) {
-			handleCellClick(document.querySelector('[data-cell="'+ramdomItem+'-c"]'),usersInfo.pc.icon,'pc')
+			handleCellClick(document.querySelector('[data-cell="'+ramdomItem+'-c"]'),usersInfo.pc.icon,'pc');
 			verifyEqual = true;
 		} else {
+			amount++;
+			if (amount > (tableInfo.length * 3)) {
+				startRamdom = true;
+			}
 			index++;
 			if(index === (tableInfo.length)) {
 				index = 0;
-				ramdomItem = randomIntFromInterval(1,tableInfo.length) - 1;
+				ramdomItem = !startRamdom ? getPcMovement(sizeTableInfo.machineInit,usersInfo) : (randomIntFromInterval(1,tableInfo.length) - 1);
 			}
 		}
 	}
@@ -266,7 +279,8 @@ function verifyLine(user,amount=3) {
 		[
 			{ direct: 'horizontal', sumX: 1, sumY: 0 },
 			{ direct: 'vertical', sumX: 0, sumY: 1 },
-			{ direct: 'diagonal', sumX: 1, sumY: 1 }
+			{ direct: 'diagonal', sumX: 1, sumY: 1 },
+			{ direct: 'diagonalLeft', sumX: -1, sumY: 1 }
 		].map(dir => {
 			if(!gameRunning)
 				return;
@@ -280,8 +294,9 @@ function verifyLine(user,amount=3) {
 				let [validItem] = usersInfo[user].blocks.filter(block => (
 					currentBlock.x + sumX === block.x && currentBlock.y + sumY === block.y
 				));
-				if(!validItem)
+				if(!validItem) {
 					return;
+				}
 				verify.amount++;
 				if (verify.amount === 2)
 					verify.first = currentBlock;
@@ -337,7 +352,7 @@ function handleEndGame(player,draw=false) {
 	if (draw) {
 		currentWinner = usersInfo.pc.points > usersInfo.user.points ? 'pc' : (usersInfo.pc.points < usersInfo.user.points ? 'user' : null);
 		if (!currentWinner) {
-			callModalWin();
+			callModalWin(null,usersInfo.pc.points,usersInfo.user.points);
 			return;
 		}
 	}
