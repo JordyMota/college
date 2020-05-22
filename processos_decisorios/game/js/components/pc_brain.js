@@ -65,7 +65,7 @@ function setPriority() {
 					if (usersInfo.pc.points === 1) {
 						item.priority += 800;
 					}
-					item.priority += 30;
+					item.priority += 35;
 					return;
 				}
 				if (possibilityFront) {
@@ -83,14 +83,14 @@ function setPriority() {
 						if (usersInfo.pc.points === 1) {
 							item.priority += 800;
 						}
-						item.priority += 30;
+						item.priority += 35;
 						return;
 					}
 					let [emptyNext] = tableInfo.filter(block => (
 						(item.x + sumBackX) === block.x && (item.y + sumBackY) === block.y && !block.blocked && !block.filled
 					));
 					if (emptyNext) {
-						item.priority += 4;
+						item.priority += 5;
 						return;
 					}
 					item.priority += 3;
@@ -111,14 +111,14 @@ function setPriority() {
 						if (usersInfo.pc.points === 1) {
 							item.priority += 800;
 						}
-						item.priority += 30;
+						item.priority += 35;
 						return;
 					}
 					let [emptyNext] = tableInfo.filter(block => (
 						(item.x + sumX) === block.x && (item.y + sumY) === block.y && !block.blocked && !block.filled
 					));
 					if (emptyNext) {
-						item.priority += 4;
+						item.priority += 5;
 						return;
 					}
 					item.priority += 3;
